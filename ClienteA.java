@@ -12,10 +12,7 @@ public class ClienteA extends Cliente implements IClienteService {
     public Float calculoPrestamo() {
         Prestamo[] prestamos = getPrestamo();
         float deudaTotal = 0f;
-        Float maximoDisponibleA = getIngresoMensual() * 10;
-        Float maximoDisponibleB = getIngresoMensual() * 5;
-
-
+       
         // for(Cuenta cuenta : cuentas) {
         // saldoTotal += cuenta.getBalance();
         // }
@@ -25,22 +22,7 @@ public class ClienteA extends Cliente implements IClienteService {
 
             deudaTotal += prestamos[i].getSaldo();
         }
-        if(calcularAntiguedad()>12 && getIngresoMensual()>2000){
-            Float totalPrestamo = 0f;
-    
-        
-        return maximoDisponibleA - deudaTotal;
-    }
-    else
-    {
-        Float totalPrestamo = 0f;
-        for(Prestamo prestamo : prestamos){
-    
-            totalPrestamo += prestamo.getSaldo();
-        }
-    
-        return maximoDisponibleB - deudaTotal;
-    }
+       return getIngresoMensual() * 10 - deudaTotal;
     
     }
     @Override
@@ -59,5 +41,6 @@ public class ClienteA extends Cliente implements IClienteService {
         }
         return saldoTotal;
     }
+
 
 }

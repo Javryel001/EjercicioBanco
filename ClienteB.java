@@ -12,26 +12,16 @@ public class ClienteB extends Cliente implements IClienteService {
 
     @Override
     public Float calculoPrestamo() {
-        Float maximoDisponibleB = getIngresoMensual() * 5;
 
-            Prestamo[] prestamos = getPrestamo();
-            float deudaTotal = 0f;
-    
-            // for(Cuenta cuenta : cuentas) {
-            // saldoTotal += cuenta.getBalance();
-            // }
-            // return saldoTotal;
-            // }
-            for (int i = 0; i < prestamos.length; i++) {
-    
-                deudaTotal += prestamos[i].getSaldo();
-            }Float totalPrestamo = 0f;
-            for(Prestamo prestamo : prestamos){
-        
-                totalPrestamo += prestamo.getSaldo();
-            }
-        
-        return maximoDisponibleB - deudaTotal;
+        Prestamo[] prestamos = getPrestamo();
+        float deudaTotal = 0f;
+
+        for (int i = 0; i < prestamos.length; i++) {
+
+            deudaTotal += prestamos[i].getSaldo();
+
+        }
+        return getIngresoMensual() * 5 - deudaTotal;
     }
 
     @Override

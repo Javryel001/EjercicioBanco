@@ -9,17 +9,16 @@ public abstract class Cliente {
     private String apellido;
     private String telefono;
     private String email;
-    protected LocalDate fechaAlta;
+    private LocalDate fechaAlta;
     private Float ingresoMensual;
-    protected Cuenta[] cuentas;
+    private Cuenta[] cuentas;
     private Prestamo[] prestamos;
 
     public Cliente() {
     }
 
     public Cliente(Long idCliente, String nombre, String apellido, String telefono, String email, LocalDate fechaAlta,
-            Cuenta[] cuentas,
-            Float ingresoMensual, Prestamo[] prestamos) {
+            Cuenta[] cuentas, Float ingresoMensual, Prestamo[] prestamos) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -113,12 +112,7 @@ public abstract class Cliente {
         
     }
 
-    public long calcularAntiguedad() {
-        LocalDate momentoActual = LocalDate.now();
-        long antiguedad = ChronoUnit.MONTHS.between(getFechaAlta(), momentoActual);
-
-        return antiguedad;
-    }
+    
 
     public abstract Float calculoBalance();
 
@@ -127,6 +121,9 @@ public abstract class Cliente {
         return "Cliente [idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono="
                 + telefono + ", email=" + email + ", fechaAlta=" + fechaAlta + ", ingresoMensual=" + ingresoMensual
                 + ", cuentas=" + Arrays.toString(cuentas) + ", prestamos=" + Arrays.toString(prestamos) + "]";
+    }
+
+    public void tipoCliente() {
     }
 
 }

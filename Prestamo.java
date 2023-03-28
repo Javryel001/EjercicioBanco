@@ -55,6 +55,12 @@ public class Prestamo {
     public void setSaldo(Float saldo) {
         this.saldo = saldo;
     }
-
+    @Override
+    public String toString() {
+        return "{" +
+            " idPrestamo='" + getIdPrestamo() + "'" +
+            ", saldo='" + getSaldo() + "'" +
+            "}";
+    }
     
 }
